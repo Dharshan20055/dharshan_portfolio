@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "./static/css/main.2fd7718b.css",
+    "main.js": "./static/js/main.6a9dcedf.js",
+    "static/media/dhothi_management.png": "./static/media/dhothi_management.07c266a6b0ad0bf2b07a.png",
+    "static/media/dhothi_ecommerce.png": "./static/media/dhothi_ecommerce.ea6a12b5abad5c95ad0e.png",
+    "static/media/newimage.jpeg": "./static/media/newimage.c80f30eb56ba9975d34f.jpeg",
+    "index.html": "./index.html",
+    "main.2fd7718b.css.map": "./static/css/main.2fd7718b.css.map",
+    "main.6a9dcedf.js.map": "./static/js/main.6a9dcedf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2fd7718b.css",
+    "static/js/main.6a9dcedf.js"
+  ]
+}
