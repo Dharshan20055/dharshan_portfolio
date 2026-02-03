@@ -1,5 +1,4 @@
-import React from "react";
-import { FaLightbulb, FaCode, FaRocket } from "react-icons/fa";
+import { FaLightbulb, FaCode, FaRocket, FaLanguage } from "react-icons/fa";
 
 function About() {
   return (
@@ -43,6 +42,15 @@ function About() {
               sharpen my coding skills.
             </p>
           </div>
+          <div className="card" style={styles.card}>
+            <FaLanguage style={styles.icon} />
+            <h3 style={styles.cardHeading}>JLPT N5</h3>
+            <p style={styles.cardText}>
+              I successfully completed the JLPT N5 examination, demonstrating
+              my proficiency in basic Japanese. This certification reflects
+              my dedication to learning new languages and cultures.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -51,7 +59,7 @@ function About() {
 
 const styles = {
   container: {
-    backgroundColor: "rgb(2, 2, 43)",
+    backgroundColor: "#0f172a",
     color: "white",
     padding: "50px 20px",
     textAlign: "center",
@@ -63,7 +71,7 @@ const styles = {
   heading: {
     fontSize: "40px",
     marginBottom: "20px",
-    color: "rgb(154,205,50)",
+    color: "#10b981",
     fontWeight: "bold",
   },
   paragraph: {
@@ -78,7 +86,7 @@ const styles = {
     gap: "20px",
   },
   card: {
-    backgroundColor: "#112B4E",
+    backgroundColor: "#1e293b",
     borderRadius: "10px",
     padding: "20px",
     textAlign: "center",
@@ -90,7 +98,7 @@ const styles = {
   cardHeading: {
     fontSize: "20px",
     margin: "15px 0",
-    color: "#FFD700",
+    color: "#fbbf24",
   },
   cardText: {
     fontSize: "15px",
@@ -98,7 +106,7 @@ const styles = {
   },
   icon: {
     fontSize: "40px",
-    color: "#FFD700",
+    color: "#fbbf24",
     marginBottom: "10px",
   },
 };
@@ -128,6 +136,16 @@ const responsiveStyles = `
   .cardText {
     font-size: 13px;
   }
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.card:hover {
+  transform: scale(1.08) translateY(-10px) !important;
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2) !important;
+  border: 1px solid #10b981;
 }
 `;
 

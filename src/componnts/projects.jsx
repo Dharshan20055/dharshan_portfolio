@@ -1,5 +1,7 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
+import DhothiEcommerceImg from './assests/dhothi_ecommerce.png';
+import DhothiManagementImg from './assests/dhothi_management.png';
 
 const GlobalStyle = createGlobalStyle`
   @keyframes fadeIn {
@@ -21,22 +23,22 @@ const Projects = () => {
         <ProjectsContainer>
           <ProjectCard>
             <CardImage>
-              <img src="https://miro.medium.com/v2/resize:fit:8000/1*K88gZjGENgxdK3I2v9nQKQ.jpeg" alt="Project 1" />
+              <img src={DhothiEcommerceImg} alt="Dhothi Ecommerce Website" />
             </CardImage>
             <CardContent>
-              <h3 className="card-title">Alumni App</h3>
-              <p className="card-description">My Alumni App is a platform I developed to help alumni stay connected, network, and share updates with each other, creating a space for collaboration and professional growth.</p>
-              
+              <h3 className="card-title">Dhothi Ecommerce Website</h3>
+              <p className="card-description">Dhothi E-commerce Website is a web platform I developed to allow customers to browse, select, and purchase traditional dhothis online. It provides features such as product listings, category-based browsing, cart management, and order placement, making it easy for users to shop for traditional wear digitally.</p>
+
             </CardContent>
           </ProjectCard>
           <ProjectCard>
             <CardImage>
-              <img src="https://www.theforage.com/blog/wp-content/uploads/2022/11/online-portfolio.jpg" alt="Project 2" />
+              <img src={DhothiManagementImg} alt="Dhothi Store Management" />
             </CardImage>
             <CardContent>
-              <h3 className="card-title">Porfolio</h3>
-              <p className="card-description">My Portfolio Website showcases my skills in programming and web development, presenting a collection of my projects and accomplishments, and reflecting my passion for technology and innovation.</p>
-              
+              <h3 className="card-title">Dhothi Store Management (Console Based)</h3>
+              <p className="card-description">Dhothi Store Management System is a Java console-based application I developed to manage day-to-day store operations efficiently. It allows the admin to handle product inventory, track sales, manage customer details, and generate billing reports, helping streamline store management using core Java concepts.</p>
+
             </CardContent>
           </ProjectCard>
         </ProjectsContainer>
@@ -50,13 +52,13 @@ export default Projects;
 const ProjectsSection = styled.div`
   padding: 50px 20px;
   text-align: center;
-  background-color: rgb(2, 2, 43);
+  background-color: #0f172a;
   color: white;
 
   .projects-title {
     font-size: 36px;
     font-weight: bold;
-    color: yellowgreen;
+    color: #10b981;
     margin-bottom: 40px;
     animation: fadeIn 2s ease-in-out;
     padding-top: 20px;
@@ -77,7 +79,7 @@ const ProjectsContainer = styled.div`
 
 const ProjectCard = styled.div`
   width: 48%;
-  background-color: #1a1a1a;
+  background-color: #1e293b;
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   overflow: hidden;
@@ -86,10 +88,12 @@ const ProjectCard = styled.div`
   cursor: pointer;
   margin-bottom: 30px;
   height: 300px;
+  border: 1px solid rgba(16, 185, 129, 0.1);
 
   &:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(16, 185, 129, 0.2);
+    border: 1px solid #10b981;
   }
 
   @media (max-width: 768px) {
@@ -99,6 +103,7 @@ const ProjectCard = styled.div`
 `;
 
 const CardImage = styled.div`
+  height: 100%;
   img {
     width: 100%;
     height: 100%;
@@ -111,7 +116,7 @@ const CardContent = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(15, 23, 42, 0.9);
   padding: 20px;
   text-align: center;
   transform: translateY(100%);
@@ -124,18 +129,18 @@ const CardContent = styled.div`
   .card-title {
     font-size: 22px;
     margin-bottom: 10px;
-    color: #FFD700;
+    color: #fbbf24;
   }
 
   .card-description {
     font-size: 16px;
-    color: #ccc;
+    color: #cbd5e1;
     margin-bottom: 20px;
   }
 
   .view-btn {
     padding: 10px 20px;
-    background-color: yellowgreen;
+    background-color: #10b981;
     border: none;
     border-radius: 8px;
     color: white;
@@ -146,5 +151,6 @@ const CardContent = styled.div`
 
   .view-btn:hover {
     transform: scale(1.1);
+    background-color: #059669;
   }
 `;

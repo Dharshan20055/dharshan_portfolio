@@ -1,36 +1,88 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+    0% { opacity: 0; }
+    100% { opacity: 1; }
   }
 `;
 
 const ContactPage = () => {
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbyYJAXBGOUsQnPrEdu8nluxWXC3A_YVcw_EJAZgZpGmixFdVc-WAWLaWnSRyNg0JrpW/exec", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        mode: "no-cors"
+      });
+
+      alert("Message sent successfully!");
+      setFormData({ name: '', email: '', message: '' });
+
+    } catch (error) {
+      alert("Something went wrong. Please try again.");
+      console.error(error);
+    }
+  };
+
   return (
     <>
       <GlobalStyle />
+
+      {/* Contact Section */}
       <ContactSection id="contact">
         <ContactForm>
           <h2>Contact</h2>
-          <FormContainer>
+
+          <FormContainer onSubmit={handleSubmit}>
             <InputField>
               <label>Name</label>
-              <input type="text" placeholder="Your Name" required />
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
             </InputField>
             <InputField>
               <label>Email</label>
-              <input type="email" placeholder="Your Email" required />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
             </InputField>
             <InputField>
               <label>Message</label>
-              <textarea placeholder="Your Message" required></textarea>
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+              ></textarea>
             </InputField>
             <SubmitButton type="submit">Send Message</SubmitButton>
           </FormContainer>
@@ -43,13 +95,13 @@ const ContactPage = () => {
         <PersonalInfoList>
           <li><strong>Name:</strong> Dharshan M</li>
           <li><strong>Email:</strong> dharshanmurali05@gmail.com</li>
-          <li><strong>Phone:</strong> +918072181033</li>
-          <li><strong>Address:</strong> Samudhirayar Street Ammapet Salem</li>
+          <li><strong>Phone:</strong> +91 8072181033</li>
+          <li><strong>Address:</strong> Samudhirayar Street, Ammapet, Salem</li>
           <li><strong>Nationality:</strong> Indian</li>
         </PersonalInfoList>
       </PersonalInfoSection>
 
-      {/* Copyright Section */}
+      {/* Footer */}
       <Footer>
         <p>&copy; 2025 Dharshan M. All rights reserved.</p>
       </Footer>
@@ -59,12 +111,14 @@ const ContactPage = () => {
 
 export default ContactPage;
 
+/* ===================== STYLES ===================== */
+
 const ContactSection = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: rgb(2, 2, 43);
+  background-color: #0f172a;
   color: white;
   padding: 20px;
 `;
@@ -73,7 +127,7 @@ const ContactForm = styled.div`
   width: 100%;
   max-width: 600px;
   text-align: center;
-  background-color: #222;
+  background-color: #1e293b;
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
@@ -82,17 +136,13 @@ const ContactForm = styled.div`
 
   h2 {
     font-size: 32px;
-    color: yellowgreen;
+    color: #10b981;
     font-weight: bold;
     margin-bottom: 20px;
   }
 
   &:hover {
     transform: scale(1.05);
-  }
-
-  @media (max-width: 768px) {
-    width: 90%;
   }
 `;
 
@@ -117,7 +167,7 @@ const InputField = styled.div`
     padding: 12px;
     border-radius: 8px;
     border: none;
-    background-color: #333;
+    background-color: #0f172a;
     color: white;
     font-size: 16px;
     outline: none;
@@ -128,7 +178,7 @@ const InputField = styled.div`
   input:focus,
   textarea:focus {
     background-color: #444;
-    box-shadow: 0 0 12px rgba(0, 255, 255, 0.7);
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
   }
 
   textarea {
@@ -138,7 +188,7 @@ const InputField = styled.div`
 
 const SubmitButton = styled.button`
   padding: 12px 20px;
-  background-color: yellowgreen;
+  background-color: #10b981;
   border: none;
   border-radius: 8px;
   color: white;
@@ -148,34 +198,29 @@ const SubmitButton = styled.button`
   margin-top: 20px;
 
   &:hover {
-    background-color: green;
+    background-color: #059669;
     transform: scale(1.05);
   }
 `;
 
 const PersonalInfoSection = styled.section`
-  background-color: rgb(2, 2, 43);
+  background-color: #0f172a;
   padding: 60px 20px;
   color: white;
   text-align: center;
 
   h2 {
     font-size: 36px;
-    color: yellowgreen;
+    color: #10b981;
     font-weight: bold;
     margin-bottom: 40px;
     animation: fadeIn 2s ease-in-out;
   }
-
-  @media (max-width: 768px) {
-    padding: 40px 20px;
-  }
 `;
 
 const PersonalInfoList = styled.ul`
-  list-style-type: none;
+  list-style: none;
   padding: 0;
-  color: white;
   font-size: 18px;
 
   li {
@@ -183,11 +228,7 @@ const PersonalInfoList = styled.ul`
   }
 
   strong {
-    color: yellowgreen;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 16px;
+    color: #10b981;
   }
 `;
 
