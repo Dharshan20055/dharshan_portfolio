@@ -45,8 +45,8 @@ function Skills() {
 
 const styles = {
   container: {
-    backgroundColor: "#0f172a",
-    color: "white",
+    backgroundColor: "var(--bg-color)",
+    color: "var(--text-color)",
     padding: "50px 20px",
     textAlign: "center",
     marginBottom: "50px",
@@ -54,12 +54,12 @@ const styles = {
   heading: {
     fontSize: "36px",
     fontWeight: "bold",
-    color: "#10b981",
+    color: "var(--accent-color)",
     marginBottom: "10px",
   },
   subheading: {
     fontSize: "17px",
-    color: "#8892B0",
+    color: "var(--secondary-text)",
     marginBottom: "30px",
     padding: "12px",
   },
@@ -71,12 +71,13 @@ const styles = {
     margin: "0 auto",
   },
   card: {
-    backgroundColor: "#1e293b",
+    backgroundColor: "var(--card-bg)",
     borderRadius: "10px",
     padding: "37px",
     textAlign: "center",
     boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
     cursor: "pointer",
+    color: "var(--text-color)",
   },
   icon: {
     fontSize: "40px",
@@ -85,7 +86,7 @@ const styles = {
   },
   title: {
     fontSize: "22px",
-    color: "white",
+    color: "var(--text-color)",
     marginBottom: "5px",
   },
 };

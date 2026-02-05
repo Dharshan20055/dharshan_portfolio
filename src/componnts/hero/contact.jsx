@@ -117,9 +117,9 @@ const ContactSection = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #0f172a;
-  color: white;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   padding: 20px;
 `;
 
@@ -127,7 +127,7 @@ const ContactForm = styled.div`
   width: 100%;
   max-width: 600px;
   text-align: center;
-  background-color: #1e293b;
+  background-color: var(--card-bg);
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
@@ -136,7 +136,7 @@ const ContactForm = styled.div`
 
   h2 {
     font-size: 32px;
-    color: #10b981;
+    color: var(--accent-color);
     font-weight: bold;
     margin-bottom: 20px;
   }
@@ -159,7 +159,7 @@ const InputField = styled.div`
   label {
     font-size: 18px;
     margin-bottom: 10px;
-    color: white;
+    color: var(--text-color);
   }
 
   input,
@@ -167,8 +167,8 @@ const InputField = styled.div`
     padding: 12px;
     border-radius: 8px;
     border: none;
-    background-color: #0f172a;
-    color: white;
+    background-color: var(--input-bg);
+    color: var(--input-color);
     font-size: 16px;
     outline: none;
     transition: 0.3s;
@@ -177,7 +177,7 @@ const InputField = styled.div`
 
   input:focus,
   textarea:focus {
-    background-color: #444;
+    background-color: var(--card-bg);
     box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
   }
 
@@ -188,7 +188,7 @@ const InputField = styled.div`
 
 const SubmitButton = styled.button`
   padding: 12px 20px;
-  background-color: #10b981;
+  background-color: var(--accent-color);
   border: none;
   border-radius: 8px;
   color: white;
@@ -204,14 +204,14 @@ const SubmitButton = styled.button`
 `;
 
 const PersonalInfoSection = styled.section`
-  background-color: #0f172a;
+  background-color: var(--bg-color);
   padding: 60px 20px;
-  color: white;
+  color: var(--text-color);
   text-align: center;
 
   h2 {
     font-size: 36px;
-    color: #10b981;
+    color: var(--accent-color);
     font-weight: bold;
     margin-bottom: 40px;
     animation: fadeIn 2s ease-in-out;
@@ -228,14 +228,14 @@ const PersonalInfoList = styled.ul`
   }
 
   strong {
-    color: #10b981;
+    color: var(--accent-color);
   }
 `;
 
 const Footer = styled.footer`
   text-align: center;
   margin-top: 40px;
-  color: gray;
+  color: var(--secondary-text);
   padding: 20px;
-  background-color: #111;
+  background-color: var(--footer-bg);
 `;

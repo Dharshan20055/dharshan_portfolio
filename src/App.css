@@ -1,15 +1,52 @@
+html {
+    scroll-behavior: smooth;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-*{
+:root {
+    --bg-color: #ffffff;
+    --text-color: #0f172a;
+    --card-bg: #f8fafc;
+    --accent-color: #10b981;
+    --secondary-text: #475569;
+    --card-content-bg: rgba(255, 255, 255, 0.9);
+    --card-title-color: #0f172a;
+    --card-description-color: #475569;
+    --input-bg: #f1f5f9;
+    --input-color: #0f172a;
+    --footer-bg: #f1f5f9;
+}
+
+.dark-mode {
+    --bg-color: #0f172a;
+    --text-color: #ffffff;
+    --card-bg: #1e293b;
+    --secondary-text: #94a3b8;
+    --card-content-bg: rgba(15, 23, 42, 0.9);
+    --card-title-color: #fbbf24;
+    --card-description-color: #cbd5e1;
+    --input-bg: #0f172a;
+    --input-color: #ffffff;
+    --footer-bg: #111111;
+}
+
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body{
-    background-color:#0f172a;
-    color: #fff;
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+span {
+    color: var(--accent-color);
 }

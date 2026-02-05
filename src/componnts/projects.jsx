@@ -52,13 +52,13 @@ export default Projects;
 const ProjectsSection = styled.div`
   padding: 50px 20px;
   text-align: center;
-  background-color: #0f172a;
-  color: white;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 
   .projects-title {
     font-size: 36px;
     font-weight: bold;
-    color: #10b981;
+    color: var(--accent-color);
     margin-bottom: 40px;
     animation: fadeIn 2s ease-in-out;
     padding-top: 20px;
@@ -79,7 +79,7 @@ const ProjectsContainer = styled.div`
 
 const ProjectCard = styled.div`
   width: 48%;
-  background-color: #1e293b;
+  background-color: var(--card-bg);
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   overflow: hidden;
@@ -93,7 +93,7 @@ const ProjectCard = styled.div`
   &:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 15px 30px rgba(16, 185, 129, 0.2);
-    border: 1px solid #10b981;
+    border: 1px solid var(--accent-color);
   }
 
   @media (max-width: 768px) {
@@ -116,7 +116,7 @@ const CardContent = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(15, 23, 42, 0.9);
+  background-color: var(--card-content-bg);
   padding: 20px;
   text-align: center;
   transform: translateY(100%);
@@ -129,18 +129,18 @@ const CardContent = styled.div`
   .card-title {
     font-size: 22px;
     margin-bottom: 10px;
-    color: #fbbf24;
+    color: var(--card-title-color);
   }
 
   .card-description {
     font-size: 16px;
-    color: #cbd5e1;
+    color: var(--card-description-color);
     margin-bottom: 20px;
   }
 
   .view-btn {
     padding: 10px 20px;
-    background-color: #10b981;
+    background-color: var(--accent-color);
     border: none;
     border-radius: 8px;
     color: white;

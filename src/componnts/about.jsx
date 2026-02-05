@@ -59,8 +59,8 @@ function About() {
 
 const styles = {
   container: {
-    backgroundColor: "#0f172a",
-    color: "white",
+    backgroundColor: "var(--bg-color)",
+    color: "var(--text-color)",
     padding: "50px 20px",
     textAlign: "center",
   },
@@ -71,13 +71,14 @@ const styles = {
   heading: {
     fontSize: "40px",
     marginBottom: "20px",
-    color: "#10b981",
+    color: "var(--accent-color)",
     fontWeight: "bold",
   },
   paragraph: {
     fontSize: "16px",
     lineHeight: "1.8",
     marginBottom: "40px",
+    color: "var(--secondary-text)",
   },
   cardContainer: {
     display: "flex",
@@ -86,7 +87,7 @@ const styles = {
     gap: "20px",
   },
   card: {
-    backgroundColor: "#1e293b",
+    backgroundColor: "var(--card-bg)",
     borderRadius: "10px",
     padding: "20px",
     textAlign: "center",
@@ -94,15 +95,17 @@ const styles = {
     boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
     transition: "transform 0.3s ease, box-shadow 0.3s ease",
     cursor: "pointer",
+    color: "var(--text-color)",
   },
   cardHeading: {
     fontSize: "20px",
     margin: "15px 0",
-    color: "#fbbf24",
+    color: "#fbbf24", // Keeping this as a highlight color, or could use another variable
   },
   cardText: {
     fontSize: "15px",
     lineHeight: "1.5",
+    color: "var(--secondary-text)",
   },
   icon: {
     fontSize: "40px",
