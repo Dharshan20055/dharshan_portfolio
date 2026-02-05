@@ -1,56 +1,40 @@
 import { FaLightbulb, FaCode, FaRocket, FaLanguage } from "react-icons/fa";
 
+const achievementsData = [
+  {
+    id: 1,
+    icon: <FaLightbulb />,
+    title: "Fullstack Workshop",
+    description: "I attended a full-stack workshop, demonstrating my strong skills in both front-end and back-end development. This achievement was a significant milestone in my journey as a developer."
+  },
+  {
+    id: 2,
+    icon: <FaLanguage />,
+    title: "JLPT N5",
+    description: "I successfully completed the JLPT N5 examination, demonstrating my proficiency in basic Japanese. This certification reflects my dedication to learning new languages and cultures."
+  }
+];
+
 function About() {
   return (
     <section style={styles.container} id="about">
       <div style={styles.content}>
         <h1 style={styles.heading}>About Me</h1>
         <p style={styles.paragraph}>
-          I am an ambitious engineering student with a strong foundation in
-          programming and web development. Passionate about creating innovative
-          solutions, I continuously strive to enhance my technical expertise.
-          With achievements in technical quizzes and coding challenges, I am
-          driven to contribute to impactful projects and stay updated with
-          advancements in technology to foster both personal and organizational
-          growth.
+          Hello, I’m Dharshan M, a passionate Computer Science Engineering student with strong interests in programming and full-stack web development. I enjoy building practical and innovative software solutions that solve real-world problems.
+
+I have hands-on experience developing projects such as Dhothi eCommerce, a web-based platform focused on delivering a seamless online shopping experience, and Dhothi Store Management System, a console-based application designed to manage store operations efficiently. These projects demonstrate my ability to design, develop, and implement scalable and user-friendly applications.
+
+I am continuously expanding my technical skills, exploring modern technologies, and striving to grow as a software developer while contributing meaningful solutions through technology.
         </p>
         <div style={styles.cardContainer}>
-          <div className="card" style={styles.card}>
-            <FaLightbulb style={styles.icon} />
-            <h3 style={styles.cardHeading}>Fullstack Workshop</h3>
-            <p style={styles.cardText}>
-              I attended a full-stack workshop, demonstrating my strong skills
-              in both front-end and back-end development. This achievement was
-              a significant milestone in my journey as a developer.
-            </p>
-          </div>
-          <div className="card" style={styles.card}>
-            <FaCode style={styles.icon} />
-            <h3 style={styles.cardHeading}>Technical Quiz</h3>
-            <p style={styles.cardText}>
-              I won 1st place in a technical quiz, which tested my knowledge in
-              various areas of technology. It was a great experience that helped
-              me further improve my problem-solving abilities.
-            </p>
-          </div>
-          <div className="card" style={styles.card}>
-            <FaRocket style={styles.icon} />
-            <h3 style={styles.cardHeading}>Coding Challenge</h3>
-            <p style={styles.cardText}>
-              I earned 2nd place in a coding challenge, where I faced tough
-              competition. This achievement pushed me to think critically and
-              sharpen my coding skills.
-            </p>
-          </div>
-          <div className="card" style={styles.card}>
-            <FaLanguage style={styles.icon} />
-            <h3 style={styles.cardHeading}>JLPT N5</h3>
-            <p style={styles.cardText}>
-              I successfully completed the JLPT N5 examination, demonstrating
-              my proficiency in basic Japanese. This certification reflects
-              my dedication to learning new languages and cultures.
-            </p>
-          </div>
+          {achievementsData.map((item) => (
+            <div key={item.id} className="card" style={styles.card}>
+              <div style={styles.icon}>{item.icon}</div>
+              <h3 style={styles.cardHeading}>{item.title}</h3>
+              <p style={styles.cardText}>{item.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -100,7 +84,7 @@ const styles = {
   cardHeading: {
     fontSize: "20px",
     margin: "15px 0",
-    color: "#fbbf24", // Keeping this as a highlight color, or could use another variable
+    color: "#fbbf24",
   },
   cardText: {
     fontSize: "15px",
@@ -114,7 +98,7 @@ const styles = {
   },
 };
 
-// Responsive styles using media queries
+
 const responsiveStyles = `
 @media (max-width: 768px) {
   .cardContainer {
@@ -152,7 +136,7 @@ const responsiveStyles = `
 }
 `;
 
-// Injecting responsive styles
+
 const styleTag = document.createElement("style");
 styleTag.textContent = responsiveStyles;
 document.head.appendChild(styleTag);

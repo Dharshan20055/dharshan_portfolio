@@ -73,7 +73,7 @@ ul li a:hover {
     border-radius: 22px;
 }
 
-/* Hero Section */
+
 .hero {
     display: flex;
     justify-content: space-between;
@@ -164,16 +164,14 @@ ul li a:hover {
     font-size: 20px;
 }
 
-/* Social Media */
+
 .social-media {
     margin-right: 50px;
     margin-top: 40px;
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    /* Allows wrapping for rows */
     gap: 10px;
-    /* Spacing between icons */
 }
 
 .social-media li {
@@ -201,11 +199,10 @@ ul li a:hover {
     font-size: 22px;
 }
 
-/* Responsive Styles */
+
 @media (max-width: 1024px) {
     .navbar {
         display: none;
-        /* Hide navbar for tablets and smaller screens */
     }
 
     .button {
@@ -237,9 +234,7 @@ ul li a:hover {
     .social-media {
         margin: 20px auto;
         justify-content: center;
-        /* Align in center */
         flex-direction: row;
-        /* Arrange icons in rows */
     }
 
     .social-media li {
@@ -281,7 +276,6 @@ ul li a:hover {
 
     .social-media {
         flex-direction: row;
-        /* Ensure row alignment */
         flex-wrap: wrap;
     }
 

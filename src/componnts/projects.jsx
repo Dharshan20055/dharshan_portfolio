@@ -1,46 +1,127 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import DhothiEcommerceImg from './assests/dhothi_ecommerce.png';
-import DhothiManagementImg from './assests/dhothi_management.png';
+import { FaGithub, FaRocket } from 'react-icons/fa';
 
 const GlobalStyle = createGlobalStyle`
   @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+    0% { opacity: 0; }
+    100% { opacity: 1; }
   }
 `;
 
+const projectsData = [
+  {
+    id: 1,
+    title: "Dhothi Ecommerce Website",
+    description: "A web platform for browsing and purchasing traditional dhothis online with integrated cart and order management features.",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    badge: "Frontend",
+    category: "Frontend",
+    github: "https://github.com/Dharshan20055/Dhothi_Ecommerce_Frontend_Webstie",
+    demo: "#"
+  },
+  {
+    id: 2,
+    title: "Dhothi Store Management (Console Based)",
+    description: "A Java console-based application developed to streamline store operations, including inventory tracking and sales reports.",
+    techStack: ["Java"],
+    badge: "Java Console App",
+    category: "Java",
+    github: "https://github.com/Dharshan20055/Dhothi-Store-Management-System",
+    demo: "#"
+  },
+  {
+    id: 3,
+    title: "Todo List",
+    description: "A feature-rich Todo List application supporting full CRUD operations.",
+    techStack: ["React", "Firebase"],
+    badge: "Fullstack",
+    category: "Fullstack",
+    github: "https://github.com/Dharshan20055/Todo_List",
+    demo: "#"
+  },
+  {
+    id: 4,
+    title: "Hand Cricket Game",
+    description: "A simple and interactive Hand Cricket game developed using React, bringing the classic childhood game to the digital screen.",
+    techStack: ["React"],
+    badge: "Frontend",
+    category: "Frontend",
+    github: "https://github.com/Dharshan20055/HandCricket",
+    demo: "https://handcricket-six.vercel.app/"
+  },
+  {
+    id: 5,
+    title: "Todo List Backend",
+    description: "A robust backend system for a Todo List application, featuring RESTful APIs for efficient task management and data handling.",
+    techStack: ["Spring Boot", "Postman"],
+    badge: "Backend",
+    category: "Backend",
+    github: "https://github.com/Dharshan20055/TODOLIST_BACKEND",
+    demo: "#"
+  },
+  {
+    id: 6,
+    title: "Online Course Management System",
+    description: "A comprehensive online course management platform with integrated payment processing via Stripe, supporting both student and instructor roles.",
+    techStack: ["React", "Spring Boot", "SQL", "Stripe"],
+    badge: "Fullstack",
+    category: "Fullstack",
+    github: "https://github.com/Dharshan20055/Simple_Online_Course_Management_System",
+    demo: "#"
+  }
+];
+
 const Projects = () => {
+  const [filter, setFilter] = useState('All');
+
+  const filteredProjects = filter === 'All'
+    ? projectsData
+    : projectsData.filter(project => project.category === filter);
+
+  const categories = ['All', 'Frontend', 'Backend', 'Fullstack', 'Java'];
+
   return (
     <>
       <GlobalStyle />
       <ProjectsSection id="project">
         <h2 className="projects-title">Projects</h2>
+
+        <FilterContainer>
+          {categories.map(cat => (
+            <FilterButton
+              key={cat}
+              active={filter === cat}
+              onClick={() => setFilter(cat)}
+            >
+              {cat}
+            </FilterButton>
+          ))}
+        </FilterContainer>
+
         <ProjectsContainer>
-          <ProjectCard>
-            <CardImage>
-              <img src={DhothiEcommerceImg} alt="Dhothi Ecommerce Website" />
-            </CardImage>
-            <CardContent>
-              <h3 className="card-title">Dhothi Ecommerce Website</h3>
-              <p className="card-description">Dhothi E-commerce Website is a web platform I developed to allow customers to browse, select, and purchase traditional dhothis online. It provides features such as product listings, category-based browsing, cart management, and order placement, making it easy for users to shop for traditional wear digitally.</p>
-
-            </CardContent>
-          </ProjectCard>
-          <ProjectCard>
-            <CardImage>
-              <img src={DhothiManagementImg} alt="Dhothi Store Management" />
-            </CardImage>
-            <CardContent>
-              <h3 className="card-title">Dhothi Store Management (Console Based)</h3>
-              <p className="card-description">Dhothi Store Management System is a Java console-based application I developed to manage day-to-day store operations efficiently. It allows the admin to handle product inventory, track sales, manage customer details, and generate billing reports, helping streamline store management using core Java concepts.</p>
-
-            </CardContent>
-          </ProjectCard>
+          {filteredProjects.map(project => (
+            <ProjectCard key={project.id}>
+              <CardContent>
+                <ProjectBadge>{project.badge}</ProjectBadge>
+                <h3 className="card-title">{project.title}</h3>
+                <p className="card-description">{project.description}</p>
+                <TechStack>
+                  {project.techStack.map(tech => (
+                    <TechTag key={tech}>{tech}</TechTag>
+                  ))}
+                </TechStack>
+                <ButtonGroup>
+                  <ProjectButton href={project.github} target="_blank" rel="noopener noreferrer" title="View Source Code">
+                    <FaGithub />
+                  </ProjectButton>
+                  <ProjectButton href={project.demo} target="_blank" rel="noopener noreferrer" title="View Project">
+                    <FaRocket />
+                  </ProjectButton>
+                </ButtonGroup>
+              </CardContent>
+            </ProjectCard>
+          ))}
         </ProjectsContainer>
       </ProjectsSection>
     </>
@@ -59,98 +140,161 @@ const ProjectsSection = styled.div`
     font-size: 36px;
     font-weight: bold;
     color: var(--accent-color);
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     animation: fadeIn 2s ease-in-out;
     padding-top: 20px;
   }
 `;
 
-const ProjectsContainer = styled.div`
+const FilterContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  gap: 30px;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
   flex-wrap: wrap;
-  margin-top: 40px;
+`;
 
-  @media (max-width: 768px) {
-    justify-content: center;
+const FilterButton = styled.button`
+  background-color: ${props => props.active ? 'var(--accent-color)' : 'rgba(16, 185, 129, 0.1)'};
+  color: ${props => props.active ? 'white' : 'var(--accent-color)'};
+  border: 1px solid ${props => props.active ? 'var(--accent-color)' : 'rgba(16, 185, 129, 0.2)'};
+  padding: 8px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
   }
 `;
 
+const ProjectsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
 const ProjectCard = styled.div`
-  width: 48%;
+  width: 31%;
   background-color: var(--card-bg);
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   overflow: hidden;
-  position: relative;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   cursor: pointer;
   margin-bottom: 30px;
-  height: 300px;
+  min-height: 320px;
   border: 1px solid rgba(16, 185, 129, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
 
   &:hover {
-    transform: translateY(-10px) scale(1.02);
+    transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(16, 185, 129, 0.2);
     border: 1px solid var(--accent-color);
   }
 
-  @media (max-width: 768px) {
-    width: 100%;
-    margin-bottom: 20px;
+  @media (max-width: 1024px) {
+    width: 45%;
   }
-`;
 
-const CardImage = styled.div`
-  height: 100%;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  @media (max-width: 768px) {
+    width: 90%;
+    margin-bottom: 20px;
   }
 `;
 
 const CardContent = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: var(--card-content-bg);
-  padding: 20px;
+  padding: 30px;
   text-align: center;
-  transform: translateY(100%);
-  transition: transform 0.3s ease-in-out;
-
-  ${ProjectCard}:hover & {
-    transform: translateY(0);
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 
   .card-title {
-    font-size: 22px;
-    margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 12px;
     color: var(--card-title-color);
+    font-weight: bold;
+    margin-top: 40px;
   }
 
   .card-description {
-    font-size: 16px;
+    font-size: 15px;
     color: var(--card-description-color);
     margin-bottom: 20px;
+    line-height: 1.5;
   }
+`;
 
-  .view-btn {
-    padding: 10px 20px;
-    background-color: var(--accent-color);
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-  }
+const ProjectBadge = styled.span`
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--accent-color);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+`;
 
-  .view-btn:hover {
-    transform: scale(1.1);
+const TechStack = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+`;
+
+const TechTag = styled.span`
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--accent-color);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+`;
+
+const ButtonGroup = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: auto;
+`;
+
+const ProjectButton = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.15);
     background-color: #059669;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
   }
 `;

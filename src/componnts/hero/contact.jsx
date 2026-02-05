@@ -46,7 +46,7 @@ const ContactPage = () => {
     <>
       <GlobalStyle />
 
-      {/* Contact Section */}
+
       <ContactSection id="contact">
         <ContactForm>
           <h2>Contact</h2>
@@ -89,7 +89,7 @@ const ContactPage = () => {
         </ContactForm>
       </ContactSection>
 
-      {/* Personal Info Section */}
+
       <PersonalInfoSection>
         <h2>Personal Info</h2>
         <PersonalInfoList>
@@ -101,7 +101,7 @@ const ContactPage = () => {
         </PersonalInfoList>
       </PersonalInfoSection>
 
-      {/* Footer */}
+
       <Footer>
         <p>&copy; 2025 Dharshan M. All rights reserved.</p>
       </Footer>
@@ -111,7 +111,7 @@ const ContactPage = () => {
 
 export default ContactPage;
 
-/* ===================== STYLES ===================== */
+
 
 const ContactSection = styled.section`
   display: flex;

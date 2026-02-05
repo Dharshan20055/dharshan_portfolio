@@ -1,26 +1,25 @@
 import React from "react";
-import { FaCuttlefish, FaJava, FaLaptopCode, FaMobileAlt, FaDatabase } from "react-icons/fa";
+import { FaJava, FaLaptopCode, FaGithub, FaDatabase } from "react-icons/fa";
+
+const skillsData = [
+  { id: 1, icon: <FaJava />, name: "Java" },
+  { id: 2, icon: <FaLaptopCode />, name: "Web Development" },
+  { id: 3, icon: <FaGithub />, name: "GITHUB" },
+  { id: 4, icon: <FaDatabase />, name: "DBMS" },
+];
 
 function Skills() {
-  const skills = [
-    { icon: <FaCuttlefish />, name: "C Programming" },
-    { icon: <FaJava />, name: "Java" },
-    { icon: <FaLaptopCode />, name: "Web Development" },
-    { icon: <FaMobileAlt />, name: "GITHUB" },
-    { icon: <FaDatabase />, name: "DBMS" },
-
-  ];
 
   return (
     <section style={styles.container} id="skill">
       <h2 style={styles.heading}>Skills</h2>
       <p style={styles.subheading}>
-        I am a skilled full-stack developer with expertise in creating dynamic and user-friendly web applications. I excel in problem-solving and technical quizzes, demonstrating strong analytical and coding abilities.
+        I am a skilled full-stack developer with expertise in creating dynamic and user-friendly web applications, demonstrating strong analytical and coding abilities.
       </p>
       <div style={styles.gridContainer}>
-        {skills.map((skill, index) => (
+        {skillsData.map((skill) => (
           <div
-            key={index}
+            key={skill.id}
             className="skill-card"
             style={styles.card}
           >
