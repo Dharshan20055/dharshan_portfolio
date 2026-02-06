@@ -23,9 +23,9 @@ function About() {
         <p style={styles.paragraph}>
           Hello, I’m Dharshan M, a passionate Computer Science Engineering student with strong interests in programming and full-stack web development. I enjoy building practical and innovative software solutions that solve real-world problems.
 
-I have hands-on experience developing projects such as Dhothi eCommerce, a web-based platform focused on delivering a seamless online shopping experience, and Dhothi Store Management System, a console-based application designed to manage store operations efficiently. These projects demonstrate my ability to design, develop, and implement scalable and user-friendly applications.
+          I have hands-on experience developing projects such as Dhothi eCommerce, a web-based platform focused on delivering a seamless online shopping experience, and Dhothi Store Management System, a console-based application designed to manage store operations efficiently. These projects demonstrate my ability to design, develop, and implement scalable and user-friendly applications.
 
-I am continuously expanding my technical skills, exploring modern technologies, and striving to grow as a software developer while contributing meaningful solutions through technology.
+          I am continuously expanding my technical skills, exploring modern technologies, and striving to grow as a software developer while contributing meaningful solutions through technology.
         </p>
         <div style={styles.cardContainer}>
           {achievementsData.map((item) => (

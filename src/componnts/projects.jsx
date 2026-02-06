@@ -1,12 +1,25 @@
-import React, { useState } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import React, { useState, useEffect, useRef } from 'react';
+import styled, { createGlobalStyle, keyframes } from 'styled-components';
 import { FaGithub, FaRocket } from 'react-icons/fa';
 
+const fadeIn = keyframes`
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+`;
+
 const GlobalStyle = createGlobalStyle`
-  @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
+  /* Global styles if needed */
+`;
+
+const pulse = keyframes`
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+`;
+
+const shimmer = keyframes`
+  0% { background-position: -468px 0; }
+  100% { background-position: 468px 0; }
 `;
 
 const projectsData = [
@@ -74,6 +87,41 @@ const projectsData = [
 
 const Projects = () => {
   const [filter, setFilter] = useState('All');
+  const [isLoading, setIsLoading] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsLoading(true);
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 2000);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  // Trigger loading animation on filter change
+  useEffect(() => {
+    setIsLoading(true);
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [filter]);
 
   const filteredProjects = filter === 'All'
     ? projectsData
@@ -84,7 +132,7 @@ const Projects = () => {
   return (
     <>
       <GlobalStyle />
-      <ProjectsSection id="project">
+      <ProjectsSection id="project" ref={sectionRef}>
         <h2 className="projects-title">Projects</h2>
 
         <FilterContainer>
@@ -102,7 +150,8 @@ const Projects = () => {
         <ProjectsContainer>
           {filteredProjects.map(project => (
             <ProjectCard key={project.id}>
-              <CardContent>
+              {isLoading && <LoadingOverlay />}
+              <CardContent isLoading={isLoading}>
                 <ProjectBadge>{project.badge}</ProjectBadge>
                 <h3 className="card-title">{project.title}</h3>
                 <p className="card-description">{project.description}</p>
@@ -130,18 +179,39 @@ const Projects = () => {
 
 export default Projects;
 
+const LoadingOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #334155;
+  background-image: linear-gradient(to right, #334155 0%, #475569 20%, #334155 40%, #334155 100%);
+  background-repeat: no-repeat;
+  background-size: 800px 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  border-radius: 12px;
+  animation: ${shimmer} 1.5s infinite linear;
+`;
+
+
 const ProjectsSection = styled.div`
   padding: 50px 20px;
   text-align: center;
   background-color: var(--bg-color);
   color: var(--text-color);
+  position: relative;
+  min-height: 400px;
 
   .projects-title {
     font-size: 36px;
     font-weight: bold;
     color: var(--accent-color);
     margin-bottom: 20px;
-    animation: fadeIn 2s ease-in-out;
+    animation: ${fadeIn} 2s ease-in-out;
     padding-top: 20px;
   }
 `;
@@ -221,6 +291,8 @@ const CardContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  opacity: ${props => props.isLoading ? 0 : 1};
+  transition: opacity 0.4s ease-in-out;
 
   .card-title {
     font-size: 24px;
