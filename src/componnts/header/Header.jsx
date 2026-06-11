@@ -14,6 +14,7 @@ function Header({ toggleTheme, theme }) {
             <li><a href='#about'>About</a></li>
             <li><a href='#skill'>Skills</a></li>
             <li><a href='#project'>Projects</a></li>
+            <li><a href='#certification'>Certifications</a></li>
 
           </ul>
         </div>

@@ -82,6 +82,16 @@ const projectsData = [
     category: "Fullstack",
     github: "https://github.com/Dharshan20055/Simple_Online_Course_Management_System",
     demo: "#"
+  },
+  {
+    id: 7,
+    title: "Pet Adoption eCommerce Platform",
+    description: "A full-stack web application designed to simplify pet adoption by connecting seekers with available pets, featuring secure auth, pet listing management, and request tracking.",
+    techStack: ["React", "Spring Boot", "MySQL"],
+    badge: "Fullstack",
+    category: "Fullstack",
+    github: "https://github.com/Dharshan20055/PETS_SELLING_ADOPTION_ECOMMERCE_INDI.git",
+    demo: "#"
   }
 ];
 

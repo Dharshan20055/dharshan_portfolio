@@ -1,17 +1,17 @@
-import { FaLightbulb, FaCode, FaRocket, FaLanguage } from "react-icons/fa";
+import { FaCode, FaLanguage } from "react-icons/fa";
 
 const achievementsData = [
   {
     id: 1,
-    icon: <FaLightbulb />,
-    title: "Fullstack Workshop",
-    description: "I attended a full-stack workshop, demonstrating my strong skills in both front-end and back-end development. This achievement was a significant milestone in my journey as a developer."
+    icon: <FaCode />,
+    title: "Full Stack Development Course",
+    description: "Successfully completed a Full Stack Development Course, gaining practical knowledge of both front-end and back-end technologies. Through hands-on learning and project development, I strengthened my understanding of modern web development, database management, and application design principles. This course played a significant role in building my foundation as a software developer."
   },
   {
     id: 2,
     icon: <FaLanguage />,
-    title: "JLPT N5",
-    description: "I successfully completed the JLPT N5 examination, demonstrating my proficiency in basic Japanese. This certification reflects my dedication to learning new languages and cultures."
+    title: "JLPT N5 Certification",
+    description: "Successfully cleared the Japanese Language Proficiency Test (JLPT N5), demonstrating foundational Japanese language skills and a commitment to continuous learning, personal growth, and global communication."
   }
 ];
 
@@ -20,13 +20,14 @@ function About() {
     <section style={styles.container} id="about">
       <div style={styles.content}>
         <h1 style={styles.heading}>About Me</h1>
-        <p style={styles.paragraph}>
-          Hello, I’m Dharshan M, a passionate Computer Science Engineering student with strong interests in programming and full-stack web development. I enjoy building practical and innovative software solutions that solve real-world problems.
-
-          I have hands-on experience developing projects such as Dhothi eCommerce, a web-based platform focused on delivering a seamless online shopping experience, and Dhothi Store Management System, a console-based application designed to manage store operations efficiently. These projects demonstrate my ability to design, develop, and implement scalable and user-friendly applications.
-
-          I am continuously expanding my technical skills, exploring modern technologies, and striving to grow as a software developer while contributing meaningful solutions through technology.
-        </p>
+        <div style={styles.paragraphContainer}>
+          <p style={styles.paragraph}>
+            I am a Computer Science Engineering graduate with a strong passion for Full Stack Development and Software Engineering. Skilled in Java, Spring Boot, React.js, MySQL, and MongoDB, I enjoy building scalable and user-friendly web applications that solve real-world problems.
+          </p>
+          <p style={styles.paragraph}>
+            Through academic projects and hands-on learning, I have gained experience in front-end and back-end development, REST API integration, database management, and modern development tools. I am continuously enhancing my technical skills and seeking opportunities to contribute, learn, and grow as a Software Developer.
+          </p>
+        </div>
         <div style={styles.cardContainer}>
           {achievementsData.map((item) => (
             <div key={item.id} className="card" style={styles.card}>
@@ -58,11 +59,18 @@ const styles = {
     color: "var(--accent-color)",
     fontWeight: "bold",
   },
+  paragraphContainer: {
+    marginBottom: "40px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "15px",
+  },
   paragraph: {
     fontSize: "16px",
     lineHeight: "1.8",
-    marginBottom: "40px",
+    margin: "0",
     color: "var(--secondary-text)",
+    textAlign: "justify",
   },
   cardContainer: {
     display: "flex",

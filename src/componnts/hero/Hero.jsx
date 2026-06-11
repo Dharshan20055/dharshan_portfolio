@@ -12,10 +12,10 @@ function Hero() {
           <div className="image"> <img src={Img} alt='' /></div>
         </div>
         <div className="left">
-          <h2>Hello</h2>
-          <h1>I am Dharshan</h1>
-          <h3>Computer Science <span>Engineer</span></h3>
-          <p>I’m Dharshan M, a passionate Computer Science Engineering student with strong interests in programming and full-stack web development. I enjoy building practical and innovative software solutions that solve real-world problems.</p>
+          <h2>Hello,</h2>
+          <h1>I'm Dharshan M</h1>
+          <h3>Computer Science Engineer | <span>Full Stack Developer</span></h3>
+          <p>I am a passionate Computer Science Engineering graduate with a strong foundation in Java, Web Development, SQL, and Software Engineering. I enjoy building scalable and user-friendly applications that solve real-world problems. My goal is to start my career as a Software Developer and continuously enhance my technical expertise through hands-on projects and industry experience.</p>
           <div className="social-links-hero">
             <a href="https://github.com/Dharshan20055" target="_blank" rel="noopener noreferrer" className="social-btn github">
               <FaGithub /> GitHub
